@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import random
 
 #We apply the squared trick to linear regression.
-
 df = pd.read_csv("perceptron_data.csv")
 
 #The learning rate of the classifier
@@ -40,20 +39,15 @@ for i in range(N):
 	points = df.iloc[rand,:]
 	x = points[0]
 	y = points[1]
-
 	
 	updated_line = gradient_descent(x,y,m,b)
 	m = updated_line[0]
 	b = updated_line[1]
 
-print(m)
-print(b)
+#Plot the data points and the line of best fit.
 x = df.iloc[:,0]
 y = df.iloc[:,1]
 plt.scatter(x,y)
-
 plt.plot(x, m*x + b,color='black')
 plt.show()
-
-
 
